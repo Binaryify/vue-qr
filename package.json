@@ -1,8 +1,8 @@
 {
   "name": "vue-qr",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
-  "description": "the Vue 2.x component of Awesome-qr.js",
+  "description": "The Vue 2.x component of Awesome-qr.js",
   "author": "Binaryify",
   "main": "src/main.js",
   "scripts": {
