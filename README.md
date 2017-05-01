@@ -6,7 +6,7 @@
 
 The Vue 2.x Component for [SumiMakito's Awesome-qr.js](https://github.com/SumiMakito/Awesome-qr.js)
 
-The only one qr code component for vue you need !
+The only one qr code component for Vue.js you need !
 
 ### Examples, 样例
 
