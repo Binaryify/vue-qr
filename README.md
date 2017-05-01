@@ -1,4 +1,8 @@
 # vue-qr
+<a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/npm/v/vue-qr.svg" alt="Version"></a>
+<a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/npm/l/vue-qr.svg" alt="License"></a>
+<a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/david/dev/binaryify/vue-qr.svg" alt="devDependencies" ></a>
+<a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/david/binaryify/vue-qr.svg" alt="devDependencies" ></a>
 
 The Vue 2.x Component for [SumiMakito's Awesome-qr.js](https://github.com/SumiMakito/Awesome-qr.js)
 
