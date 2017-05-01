@@ -14,7 +14,7 @@ The only one qr code component for vue you need !
 
 Example 1|Example 2|Example 3
 ------------ | ------------- | -------------
-<img src="./demo/src/assets/result1.png" width="400"> | <img src="./demo/src/assets/result2.png" width="400"> | <img src="./demo/src/assets/result3.png" width="400">
+<img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/demo/src/assets/result1.png" width="400"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/demo/src/assets/result2.png" width="400"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/demo/src/assets/result3.png" width="400">
 
 ## Installation
 **install with NPM**
