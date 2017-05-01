@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "the Vue 2.x component of Awesome-qr.js",
   "author": "Binaryify",
   "main": "src/main.js",
@@ -12,6 +12,13 @@
   "dependencies": {
     "vue": "^2.2.6"
   },
+  "keywords":[
+    "vue-qr",
+    "vue qr",
+    "vue qrcode",
+    "qr",
+    "vue"
+  ],
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
