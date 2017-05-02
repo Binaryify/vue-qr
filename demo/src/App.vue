@@ -16,7 +16,7 @@ export default {
   },
   data(){
     return{
-      src:require("./assets/bg4.jpg")
+      src:require("./assets/bg1.jpg")
     }
   }
 }
