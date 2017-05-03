@@ -21,6 +21,7 @@ export default {
   name: 'vue-qr',
   mounted() {
     const that = this
+    console.log(this.autoColor,typeof this.autoColor)
     if (this.bgSrc) {
       const img = new Image()
       img.src = this.bgSrc

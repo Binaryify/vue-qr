@@ -1,22 +1,19 @@
 <template>
   <div id="app">
-    <vue-qr text="Hello world!" height="200" width="200"
-      autoColor='true'
-    />
+    <vue-qr :bgSrc="src" text="Hello world!" height="200" width="200" :autoColor='true' />
   </div>
 </template>
 
 <script>
 import VueQr from '../../src/main.js'
-
 export default {
   name: 'app',
   components: {
     VueQr
   },
-  data(){
-    return{
-      src:require("./assets/bg1.png")
+  data() {
+    return {
+      src: require("./assets/bg1.png")
     }
   }
 }
