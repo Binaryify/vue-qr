@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-qr text="Hello world!" :autoColor='true' :bgSrc='src' :logoSrc="src2" size="400"/>
+    <vue-qr text="Hello world!" :autoColor='true' :bgSrc='src' :logoSrc="src2" size="400" margin="0"/>
   </div>
 </template>
 
