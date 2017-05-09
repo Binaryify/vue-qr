@@ -1,32 +1,33 @@
 <template>
   <div>
-    <img ref='qrimg'>
+    <img id="qrcode">
   </div>
 </template>
 
 <script>
-function autoColorMap(val) {
-  const map = {
-    undefined: false,
-    'false': false,
-    'true': true,
-    true: true,
-    false: false
-  }
-  return map[val]
-}
+import { toBoolean } from './util.js'
 import AwesomeQRCode from './awesome-qr.js';
 export default {
-  props: ['text', 'width', 'height', 'colorDark', 'colorLight', 'bgSrc', 'autoColor'],
+  props: ['text', 'size', 'margin','colorDark', 'colorLight', 'bgSrc', 'backgroundDimming','logoSrc', 'logoScale','logoMargin','logoCornerRadius','whiteMargin','dotScale','autoColor', 'binarize','binarizeThreshold','callback'],
   name: 'vue-qr',
   mounted() {
     const that = this
-    console.log(this.autoColor,typeof this.autoColor)
+    if (this.bgSrc && this.logoSrc) {
+      const bgImg = new Image()
+      const logoImg = new Image()
+      bgImg.src = this.bgSrc
+      bgImg.onload = function () {
+        logoImg.src = that.logoSrc
+        logoImg.onload = function () {
+          that.render(bgImg, logoImg)
+        }
+      }
+      return
+    }
     if (this.bgSrc) {
       const img = new Image()
       img.src = this.bgSrc
       img.onload = function () {
-        console.log(that.autoColor)
         that.render(img)
       }
       return
@@ -34,23 +35,31 @@ export default {
     that.render()
   },
   methods: {
-    render(img) {
+    render(img, logoImg) {
       const that = this
-      new AwesomeQRCode(
-        {
-          text: that.text,  // Contents to encode. 欲编码的内容
-          width: that.width || 400, // Width, should equal to height. 宽度, 宽高应当一致
-          height: that.height || 400,  // Height, should equal to width. 高度, 宽高应当一致
-          colorDark: that.colorDark || "#000000",  // Color of blocks. Will be OVERRIDE by autoColor. 实点的颜色
-          colorLight: that.colorLight || "#FFFFFF",  // Color of empty space. Will be OVERRIDE by autoColor. 空白点的颜色
-          correctLevel: AwesomeQRCode.CorrectLevel.H,
-          backgroundImage: img,     // The background image to embed in the QR code. If undefined, no background image will be embedded. 欲嵌入的背景图
-          autoColor: autoColorMap(that.autoColor)  // If true, colorDark will be set to the dominant color of backgroundImage. Default is true. 若为 true, 则将从背景图取主要颜色作为实点颜色
+      console.log(logoImg)
+      new AwesomeQRCode().create({
+        text: that.text,
+        size: that.size || 200,
+        margin: that.margin || 20,
+        colorDark: that.colorDark || "#000000",
+        colorLight: that.colorLight || "#FFFFFF",
+        backgroundImage: img,
+        backgroundDimming: that.backgroundDimming || 'rgba(0,0,0,0)',
+        logoImage: logoImg,
+        logoScale: that.logoScale || 0.2,
+        logoMargin: that.logoMargin || 0,
+        logoCornerRadius: that.logoCornerRadius || 8,
+        whiteMargin: toBoolean(that.whiteMargin) || true,
+        dotScale: that.dotScale || 0.35,
+        autoColor: toBoolean(that.autoColor) || true,
+        binarize: toBoolean(that.binarize) || false,
+        binarizeThreshold: that.binarizeThreshold || 128,
+        callback: function (dataURI) {
+          that.callback && that.callback(dataURI)
         },
-        function (dataUrl) {
-          that.$refs.qrimg.src = dataUrl
-        }
-      );
+        bindElement: 'qrcode'
+      })
     }
   }
 }

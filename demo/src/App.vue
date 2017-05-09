@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-qr :bgSrc="src" text="Hello world!" height="200" width="200" :autoColor='true' />
+    <vue-qr text="Hello world!" :autoColor='true' :bgSrc='src' :logoSrc="src2" />
   </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
   },
   data() {
     return {
-      src: require("./assets/bg1.png")
+      src: require("./assets/bg1.png"),
+      src2:require("./assets/bg2.jpg")
     }
   }
 }
