@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       src: require("./assets/bg1.png"),
-      src2:require("./assets/bg2.jpg")
+      src2:require("./assets/avatar.png")
     }
   }
 }
