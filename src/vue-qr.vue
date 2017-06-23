@@ -32,6 +32,14 @@ export default {
       }
       return
     }
+    if (this.logoSrc) {
+      const img = new Image()
+      img.src = this.logoSrc
+      img.onload = function () {
+        that.render(undefined,img)
+      }
+      return
+    }
     that.render()
   },
   methods: {
