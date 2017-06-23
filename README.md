@@ -47,7 +47,7 @@ backgroundDimming | Color mask to add above the background image. Helpful when h
 logoSrc | Logo url to embed at the center of generated QR code. 欲嵌入至二维码中心的 LOGO 地址
 logoScale | Value used to scale the logo image. Larger value may result in decode failure. Size of the logo equals to `logoScale*(size-2*margin)`. Default is 0.2f. 用于计算 LOGO 大小的值, 过大将导致解码失败, LOGO 尺寸计算公式 `logoScale*(size-2*margin)`, 默认 0.2f
 logoMargin | White margin that appears around the logo image. Default is 0. LOGO 标识周围的空白边框, 默认为0
-logoCornerRadius | Radius of the logo's corners.Default is 0 LOGO 标识及其边框的圆角半径, 默认为0
+logoCornerRadius | Radius of the logo's corners.Default is 0 LOGO 标识及其边框的圆角半径, 默认为0
 whiteMargin | If set to true, a white border will appear around the background image. Default is true. 若设为 true, 背景图外将绘制白色边框
 dotScale | Value used to scale down the data dots' size. (0 < scale < 1.0f) 数据区域点缩小比例
 autoColor | If set to true, the dominant color of backgroundImage will be used as colorDark. Default is true. 若为 true, 背景图的主要颜色将作为实点的颜色, 即 colorDark
