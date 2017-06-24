@@ -33,7 +33,7 @@ new Vue({
 **In template**
 
 ```html
-<vue-qr :bgSrc='src' :logoSrc="src2" text="Hello world!" height="200" width="200"/>
+<vue-qr :bgSrc='src' :logoSrc="src2" text="Hello world!" height="200" width="200"></vue-qr>
 ```
 Parameter | Explanation
 ----|----

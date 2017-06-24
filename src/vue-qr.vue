@@ -1,15 +1,25 @@
 <template>
   <div>
-    <img id="qrcode">
+    <img v-bind="{id:uuid}">
   </div>
 </template>
 
 <script>
+const uuidv4 = require('uuid/v4')
 import { toBoolean } from './util.js'
 import AwesomeQRCode from './awesome-qr.js';
 export default {
-  props: ['text', 'size', 'margin','colorDark', 'colorLight', 'bgSrc', 'backgroundDimming','logoSrc', 'logoScale','logoMargin','logoCornerRadius','whiteMargin','dotScale','autoColor', 'binarize','binarizeThreshold','callback'],
+  props: ['text', 'size', 'margin', 'colorDark', 'colorLight', 'bgSrc', 'backgroundDimming', 'logoSrc', 'logoScale', 'logoMargin', 'logoCornerRadius', 'whiteMargin', 'dotScale', 'autoColor', 'binarize', 'binarizeThreshold', 'callback'],
   name: 'vue-qr',
+  data() {
+    return {
+      uuid:""
+    }
+  },
+  beforeMount(){
+    this.uuid=uuidv4()
+    console.log(this.bgSrc)
+  },
   mounted() {
     const that = this
     if (this.bgSrc && this.logoSrc) {
@@ -36,7 +46,7 @@ export default {
       const img = new Image()
       img.src = this.logoSrc
       img.onload = function () {
-        that.render(undefined,img)
+        that.render(undefined, img)
       }
       return
     }
@@ -66,7 +76,7 @@ export default {
         callback: function (dataURI) {
           that.callback && that.callback(dataURI)
         },
-        bindElement: 'qrcode'
+        bindElement: that.uuid
       })
     }
   }

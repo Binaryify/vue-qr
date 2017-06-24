@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.1.3 | 2017.06.24
+Fix only render one QR code error
+
 ## 1.1.2 | 2017.06.23
 Fix only logoSrc doesn't render error
 
