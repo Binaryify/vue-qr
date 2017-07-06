@@ -37,10 +37,8 @@ export default {
   },
   beforeMount() {
     this.uuid = uuidv4()
-    // console.log(this.bgSrc)
   },
   mounted() {
-    // console.log(this.$props)
     this.main()
   },
   methods: {
@@ -78,7 +76,6 @@ export default {
     },
     render(img, logoImg) {
       const that = this
-      // console.log(logoImg)
       new AwesomeQRCode().create({
         text: that.text,
         size: that.size || 200,
