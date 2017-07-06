@@ -1,5 +1,5 @@
 # CHANGELOG
-## 1.2.0 | 2017.07.06
+## 1.2.1 | 2017.07.06
 Add dynamic generation features
 
 ## 1.1.3 | 2017.06.24

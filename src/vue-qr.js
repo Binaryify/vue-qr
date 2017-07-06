@@ -27,14 +27,14 @@ export default {
       uuid: ''
     }
   },
-  // watch: {
-  //   $props: {
-  //     deep: true,
-  //     handler(nextProps) {
-  //       this.main()
-  //     }
-  //   }
-  // },
+  watch: {
+    $props: {
+      deep: true,
+      handler(nextProps) {
+        this.main()
+      }
+    }
+  },
   beforeMount() {
     this.uuid = uuidv4()
     // console.log(this.bgSrc)
