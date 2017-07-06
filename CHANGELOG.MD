@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.2.0 | 2017.07.06
+Add dynamic generation features
+
 ## 1.1.3 | 2017.06.24
 Fix only render one QR code error
 
