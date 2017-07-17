@@ -1,6 +1,6 @@
 <template>
   <div>
-     <img v-bind="{id:uuid}"> 
+    <img v-bind="{id:uuid}">
   </div>
 </template>
 
