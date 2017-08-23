@@ -47,29 +47,33 @@ export default {
       if (this.bgSrc && this.logoSrc) {
         const bgImg = new Image()
         const logoImg = new Image()
-        bgImg.src = this.bgSrc
         bgImg.onload = function() {
-          logoImg.src = that.logoSrc
           logoImg.onload = function() {
             that.render(bgImg, logoImg)
           }
+          logoImg.crossOrigin = 'anonymous'
+          logoImg.src = that.logoSrc
         }
+        bgImg.crossOrigin = 'anonymous'
+        bgImg.src = this.bgSrc
         return
       }
       if (this.bgSrc) {
         const img = new Image()
-        img.src = this.bgSrc
         img.onload = function() {
           that.render(img)
         }
+        img.crossOrigin = 'anonymous'
+        img.src = this.bgSrc
         return
       }
       if (this.logoSrc) {
         const img = new Image()
-        img.src = this.logoSrc
         img.onload = function() {
           that.render(undefined, img)
         }
+        img.crossOrigin = 'anonymous'
+        img.src = this.logoSrc
         return
       }
       that.render()
