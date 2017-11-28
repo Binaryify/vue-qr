@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.2.4 | 2017.11.28
+Fix some bug 
+
 ## 1.2.1 | 2017.07.06
 Add dynamic generation features
 
