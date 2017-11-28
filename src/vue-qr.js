@@ -2,25 +2,82 @@ const uuidv4 = require('uuid/v4')
 import { toBoolean } from './util.js'
 import AwesomeQRCode from 'awesome-qr'
 export default {
-  props: [
-    'text',
-    'size',
-    'margin',
-    'colorDark',
-    'colorLight',
-    'bgSrc',
-    'backgroundDimming',
-    'logoSrc',
-    'logoScale',
-    'logoMargin',
-    'logoCornerRadius',
-    'whiteMargin',
-    'dotScale',
-    'autoColor',
-    'binarize',
-    'binarizeThreshold',
-    'callback'
-  ],
+  props: {
+    text: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Number,
+      default: 200
+    },
+    margin: {
+      type: Number,
+      default: 20
+    },
+    colorDark: {
+      type: String,
+      default: '#000000'
+    },
+    colorLight: {
+      type: String,
+      default: '#FFFFFF'
+    },
+    bgSrc: {
+      type: String,
+      default: undefined
+    },
+    backgroundDimming: {
+      type: String,
+      default: 'rgba(0,0,0,0)'
+    },
+    logoSrc: {
+      type: String,
+      default: undefined
+    },
+    logoScale: {
+      type: Number,
+      default: 0.2
+    },
+    logoMargin: {
+      type: Number,
+      default: 0
+    },
+    logoCornerRadius: {
+      type: Number,
+      default: 8
+    },
+    whiteMargin: {
+      type: [Boolean, String],
+      default: true
+    },
+    dotScale: {
+      type: Number,
+      default: 0.35
+    },
+    autoColor: {
+      type: [Boolean, String],
+      default: true
+    },
+    binarize: {
+      type: [Boolean, String],
+      default: false
+    },
+    binarizeThreshold: {
+      type: Number,
+      default: 128
+    },
+    callback: {
+      type: Function,
+      default: function () {
+        return undefined
+      }
+    },
+    bindElement: {
+      type: Boolean,
+      default: true
+    }
+  },
   name: 'vue-qr',
   data() {
     return {
@@ -82,25 +139,25 @@ export default {
       const that = this
       new AwesomeQRCode().create({
         text: that.text,
-        size: that.size || 200,
-        margin: that.margin || 20,
-        colorDark: that.colorDark || '#000000',
-        colorLight: that.colorLight || '#FFFFFF',
+        size: that.size,
+        margin: that.margin,
+        colorDark: that.colorDark,
+        colorLight: that.colorLight,
         backgroundImage: img,
-        backgroundDimming: that.backgroundDimming || 'rgba(0,0,0,0)',
+        backgroundDimming: that.backgroundDimming,
         logoImage: logoImg,
-        logoScale: that.logoScale || 0.2,
-        logoMargin: that.logoMargin || 0,
-        logoCornerRadius: that.logoCornerRadius || 8,
-        whiteMargin: toBoolean(that.whiteMargin) || true,
-        dotScale: that.dotScale || 0.35,
-        autoColor: toBoolean(that.autoColor) || true,
-        binarize: toBoolean(that.binarize) || false,
-        binarizeThreshold: that.binarizeThreshold || 128,
+        logoScale: that.logoScale,
+        logoMargin: that.logoMargin,
+        logoCornerRadius: that.logoCornerRadius,
+        whiteMargin: toBoolean(that.whiteMargin),
+        dotScale: that.dotScale,
+        autoColor: toBoolean(that.autoColor),
+        binarize: toBoolean(that.binarize),
+        binarizeThreshold: that.binarizeThreshold,
         callback: function(dataURI) {
           that.callback && that.callback(dataURI)
         },
-        bindElement: that.uuid
+        bindElement: that.bindElement ? that.uuid : undefined
       })
     }
   }

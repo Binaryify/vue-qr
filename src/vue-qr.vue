@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="bindElement">
     <img v-bind="{id:uuid}">
   </div>
 </template>
