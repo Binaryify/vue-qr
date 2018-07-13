@@ -1,19 +1,30 @@
 {
   "name": "vue-qr",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.3.5",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
+  "license": "MIT",
+  "author": "Binaryify",
   "dependencies": {
+    "uuid": "^3.3.2",
     "vue": "^2.5.16"
   },
+  "main": "src/main.js",
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
     "vue-template-compiler": "^2.5.16"
   },
+  "description": "The Vue 2.x component of Awesome-qr.js",
+  "keywords": [
+    "vue-qr",
+    "vue qr",
+    "vue qrcode",
+    "qr",
+    "vue"
+  ],
   "browserslist": [
     "> 1%",
     "last 2 versions",
