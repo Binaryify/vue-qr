@@ -170,7 +170,7 @@ export default {
         binarize: toBoolean(that.binarize),
         binarizeThreshold: that.binarizeThreshold,
         callback: function(dataURI) {
-          console.log(dataURI, that.qid)
+//          console.log(dataURI, that.qid)
           that.callback && that.callback(dataURI, that.qid)
         },
         bindElement: that.bindElement ? that.uuid : undefined
