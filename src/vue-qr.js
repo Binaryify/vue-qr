@@ -1,6 +1,7 @@
 const uuidv4 = require('uuid/v4')
 import { toBoolean } from './util.js'
 import AwesomeQRCode from './awesome-qr'
+import imgLoaded from './imgLoaded'
 export default {
   props: {
     text: {
@@ -100,57 +101,30 @@ export default {
     this.main()
   },
   methods: {
-    main() {
+    async main() {
       const that = this
       if (this.bgSrc && this.logoSrc) {
-        const bgImg = new Image()
-        const logoImg = new Image()
-        bgImg.onload = function() {
-          logoImg.onload = function() {
-            that.render(bgImg, logoImg)
-          }
-          // that.checkIsUrl(that.logoSrc) && (logoImg.crossOrigin = 'anonymous')
-          logoImg.src = that.logoSrc
-        }
-        // bgImg.crossOrigin = 'anonymous'
-        // this.checkIsUrl(this.bgSrc) && (bgImg.crossOrigin = 'anonymous')
-        bgImg.src = this.bgSrc
+        const bgImg = await imgLoaded(this.bgSrc)
+        const logoImg = await imgLoaded(this.logoSrc)
+        this.render(bgImg, logoImg)
         return
       }
       if (this.bgSrc) {
-        const img = new Image()
-        img.onload = function() {
-          that.render(img)
-        }
-        // this.checkIsUrl(this.bgSrc) && (img.crossOrigin = 'anonymous')
-        img.src = this.bgSrc
+        const img = await imgLoaded(this.bgSrc)
+        this.render(img)
         return
       }
       if (this.logoSrc) {
-        const img = new Image()
-        img.onload = function() {
-          that.render(undefined, img)
-        }
-        // this.checkIsUrl(this.logoSrc) && (img.crossOrigin = 'anonymous')
-        // img.crossOrigin = 'anonymous'
-        img.src = this.logoSrc
+        const img = await imgLoaded(this.logoSrc)
+        this.render(undefined, img)
         return
       }
 
-      // const img = new Image()
-      // img.crossOrigin = 'anonymous'
       setTimeout(() => {
         that.render()
       }, 0)
     },
-    // checkIsUrl(path) {
-    //   if (path.substring(0, 4).toLowerCase() == 'http') {
-    //     return true
-    //   }
-    //   return false
-    // },
     render(img, logoImg) {
-      // console.log(img, logoImg)
       const that = this
       new AwesomeQRCode().create({
         text: that.text,
@@ -170,7 +144,6 @@ export default {
         binarize: toBoolean(that.binarize),
         binarizeThreshold: that.binarizeThreshold,
         callback: function(dataURI) {
-//          console.log(dataURI, that.qid)
           that.callback && that.callback(dataURI, that.qid)
         },
         bindElement: that.bindElement ? that.uuid : undefined
