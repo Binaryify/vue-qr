@@ -1,9 +1,9 @@
 function imgLoaded(url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest()
     xhr.onload = function() {
-      const url = URL.createObjectURL(this.response)
-      const img = new Image()
+      var url = URL.createObjectURL(this.response)
+      var img = new Image()
       img.onload = function() {
         resolve(img)
         URL.revokeObjectURL(url)
