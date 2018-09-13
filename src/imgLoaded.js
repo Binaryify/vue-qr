@@ -1,17 +1,28 @@
 function imgLoaded(url) {
   return new Promise(function(resolve, reject) {
-    var xhr = new XMLHttpRequest()
-    xhr.onload = function() {
-      var url = URL.createObjectURL(this.response)
+    if (url.slice(0, 4) == 'data') {
       var img = new Image()
       img.onload = function() {
         resolve(img)
-        URL.revokeObjectURL(url)
       }
       img.onerror = function() {
         reject('Image load error')
       }
       img.src = url
+      return
+    }
+    var xhr = new XMLHttpRequest()
+    xhr.onload = function() {
+      var newUrl = URL.createObjectURL(this.response)
+      var img = new Image()
+      img.onload = function() {
+        resolve(img)
+        URL.revokeObjectURL(newUrl)
+      }
+      img.onerror = function() {
+        reject('Image load error')
+      }
+      img.src = newUrl
     }
     xhr.open('GET', url, true)
     xhr.responseType = 'blob'
