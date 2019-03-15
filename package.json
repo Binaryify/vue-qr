@@ -7,6 +7,11 @@
   },
   "license": "MIT",
   "author": "Binaryify",
+  "homepage": "https://github.com/Binaryify/vue-qr#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Binaryify/vue-qr.git"
+  },
   "dependencies": {
     "uuid": "^3.3.2",
     "vue": "^2.5.16"
