@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
