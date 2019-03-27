@@ -41,6 +41,10 @@ export default {
             type: String,
             default: undefined
         },
+        background: {
+            type: String,
+            default: "rgba(0,0,0,0)"
+        },
         backgroundDimming: {
             type: String,
             default: "rgba(0,0,0,0)"
@@ -48,6 +52,10 @@ export default {
         logoSrc: {
             type: String,
             default: undefined
+        },
+        logoBackgroundColor:{
+            type: String,
+            default: "rgba(0,0,0,0)"
         },
         gifBgSrc: {
             type: String,
@@ -146,6 +154,7 @@ export default {
                 backgroundDimming: that.backgroundDimming,
                 logoImage: logoImg,
                 logoScale: that.logoScale,
+                logoBackgroundColor:that.logoBackgroundColor,
                 correctLevel:that.correctLevel,
                 logoMargin: that.logoMargin,
                 logoCornerRadius: that.logoCornerRadius,

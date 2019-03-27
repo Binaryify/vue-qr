@@ -1,7 +1,12 @@
 <template>
     <div>
-        <vue-qr text="hello world" :correctLevel="0"></vue-qr>
+        <vue-qr text="hello world" :correctLevel="0" backgroundColor="rgb(255,0,0)"></vue-qr>
+        <vue-qr text="hello world" :correctLevel="1" colorLight="rgb(255,0,0)"></vue-qr>
+        <vue-qr text="hello world" :correctLevel="2"></vue-qr>
         <vue-qr :bgSrc="src" :logoSrc="src2" text="Hello world!" :size="260" :margin="0" :dotScale="0.5"></vue-qr>
+        <vue-qr :bgSrc="src" :logoSrc="src2" text="Hello world!" :size="260" :margin="0" :dotScale="0.5" logoBackgroundColor="rgb(255,0,0)" :logoMargin="10"></vue-qr>
+        
+         <vue-qr text="testdsfhsidufhiusdhfi" :bgSrc="src"></vue-qr>
         <vue-qr :text="time+''"></vue-qr>
         <vue-qr :bgSrc="src3" text="Hello world!" :size="260" :margin="0" :dotScale="0.6"></vue-qr>
         <vue-qr :bgSrc="src4" text="Hello world!" :size="300" :dotScale="0.5"></vue-qr>
@@ -20,6 +25,7 @@ export default {
         setInterval(()=>{
             this.time++
         },1000)
+        
     },  
     data() {
         return {

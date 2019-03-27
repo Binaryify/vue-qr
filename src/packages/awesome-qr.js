@@ -1192,7 +1192,7 @@ var Drawing = (function() {
       }
     } else {
       _bContext.rect(0, 0, size, size);
-      _bContext.fillStyle = "#ffffff";
+      _bContext.fillStyle = _htOption.backgroundColor;
       _bContext.fill();
     }
 
@@ -1233,7 +1233,7 @@ var Drawing = (function() {
         _oContext.lineWidth = 0.5;
         _oContext.fillStyle = bIsDark
           ? _htOption.colorDark
-          : "rgba(255, 255, 255, 0.6)"; //_htOption.colorLight;
+          : _htOption.colorLight; //_htOption.colorLight;
         if (agnPatternCenter.length === 0) {
           // if align pattern list is empty, then it means that we don't need to leave room for the align patterns
           if (!bProtected) {
@@ -1268,7 +1268,7 @@ var Drawing = (function() {
     }
 
     // Draw POSITION protectors
-    var protectorStyle = "rgba(255, 255, 255, 0.6)";
+    var protectorStyle = _htOption.colorLight;
     _oContext.fillStyle = protectorStyle;
     _oContext.fillRect(0, 0, 8 * nSize, 8 * nSize);
     _oContext.fillRect(0, (nCount - 8) * nSize, 8 * nSize, 8 * nSize);
@@ -1347,7 +1347,7 @@ var Drawing = (function() {
           agnY !== 6 &&
           agnY !== edgeCenter
         ) {
-          _oContext.fillStyle = "rgba(0, 0, 0, .2)";
+          _oContext.fillStyle =  _htOption.colorLight;
           _drawAlign(_oContext, agnX, agnY, nSize, nSize);
         } else {
           _oContext.fillStyle = _htOption.colorDark;
@@ -1358,7 +1358,7 @@ var Drawing = (function() {
 
     // Fill the margin
     if (whiteMargin) {
-      _oContext.fillStyle = "#FFFFFF";
+      _oContext.fillStyle = _htOption.backgroundColor;
       _oContext.fillRect(-margin, -margin, size, margin);
       _oContext.fillRect(-margin, viewportSize, size, margin);
       _oContext.fillRect(viewportSize, -margin, margin, size);
@@ -1385,7 +1385,7 @@ var Drawing = (function() {
       var x = 0.5 * (size - logoSize);
       var y = x;
 
-      _oContext.fillStyle = "#FFFFFF";
+      _oContext.fillStyle =  _htOption.logoBackgroundColor;
       _oContext.save();
       _prepareRoundedCornerClip(
         _oContext,
@@ -1702,7 +1702,8 @@ AwesomeQRCode.prototype.create = function(vOption) {
     margin: 20,
     typeNumber: 4,
     colorDark: "#000000",
-    colorLight: "#ffffff",
+    colorLight: "rgba(255, 255, 255, 0.6)",
+    logoBackgroundColor: '#ffffff',
     correctLevel: QRErrorCorrectLevel.M,
     backgroundImage: undefined,
     backgroundDimming: "rgba(0,0,0,0)",
