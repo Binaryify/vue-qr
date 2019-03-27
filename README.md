@@ -53,7 +53,7 @@ export default {
 Parameter | Explanation
 ----|----
 text | Contents to encode. 欲编码的内容
-correctLevel|  Correct Level 0~3 容错级别 0~3
+correctLevel|  Correct Level 0-3 容错级别 0-3
 size | Width as well as the height of the output QR code, includes margin. 尺寸, 长宽一致, 包含外边距
 margin | Margin to add around the QR code, default 20px. 二维码图像的外边距, 默认 20px
 colorDark | Color of "true" blocks. Works only when both colorDark and colorLight are set. (BYTE_DTA, BYTE_POS, BYTE_AGN, BYTE_TMG) 实点的颜色
