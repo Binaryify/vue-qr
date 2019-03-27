@@ -1,4 +1,7 @@
 function imgLoaded(url) {
+  if(!url){
+    return undefined
+  }
   return new Promise(function(resolve, reject) {
     if (url.slice(0, 4) == 'data') {
       var img = new Image()
