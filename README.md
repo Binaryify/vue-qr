@@ -9,7 +9,7 @@ The Vue 2.x Component for [SumiMakito's Awesome-qr.js](https://github.com/SumiMa
 The only one qr code component for Vue.js you need !
 
 ### Notice
-Don't support IE 不支持IE浏览器
+Not support IE 不支持IE浏览器
 
 ### Examples, 样例
 
