@@ -1,6 +1,6 @@
-var AwesomeQRCode;
 import GIF from "./Gif";
 import GIFE from "./gifjs";
+var AwesomeQRCode;
 
 function QR8bitByte(data) {
   this.mode = QRMode.MODE_8BIT_BYTE;
@@ -1627,7 +1627,7 @@ function _prepareRoundedCornerClip(ctx, x, y, w, h, r) {
 }
 
 function _setPixel(imageData, p, r, g, b, a) {
-  index = p * 4;
+  var index = p * 4;
   imageData.data[index + 0] = r;
   imageData.data[index + 1] = g;
   imageData.data[index + 2] = b;
@@ -1720,7 +1720,6 @@ AwesomeQRCode.prototype.create = function(vOption) {
     gifBackground: undefined,
     callback: undefined,
     bindElement: undefined,
-    logoBackgroundColor: '#ffffff',
     backgroundColor: '#ffffff',
   };
 

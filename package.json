@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/Binaryify/vue-qr.git"
   },
-  "main": "src/main.js",
+  "main": "dist/vue-qr.js",
   "devDependencies": {
     "uuid": "^3.3.2",
     "babel-polyfill": "^6.26.0",

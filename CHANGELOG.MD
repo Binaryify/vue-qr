@@ -1,4 +1,7 @@
 # 2.0.2
+- Fix bug
+
+# 2.0.2
 - Update README.MD
 
 # 2.0.1

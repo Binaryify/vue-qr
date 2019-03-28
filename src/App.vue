@@ -2,6 +2,7 @@
     <div>
         <vue-qr text="hello world" :correctLevel="0" backgroundColor="rgb(255,0,0)"></vue-qr>
         <vue-qr text="hello world" :correctLevel="1" colorLight="rgb(255,0,0)"></vue-qr>
+         <vue-qr text="hello world" :correctLevel="1" colorLight="rgb(0,255,0)"></vue-qr>
         <vue-qr text="hello world" :correctLevel="2"></vue-qr>
         <vue-qr :bgSrc="src" :logoSrc="src2" text="Hello world!" :size="260" :margin="0" :dotScale="0.5"></vue-qr>
         <vue-qr :bgSrc="src" :logoSrc="src2" text="Hello world!" :size="260" :margin="0" :dotScale="0.5" logoBackgroundColor="rgb(255,0,0)" :logoMargin="10"></vue-qr>
