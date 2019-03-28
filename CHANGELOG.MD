@@ -1,3 +1,6 @@
+# 2.0.4
+- Fix dotScale defalut value bug
+
 # 2.0.2
 - Fix bug
 

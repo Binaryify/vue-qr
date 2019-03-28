@@ -79,7 +79,7 @@ export default {
         },
         dotScale: {
             type: Number,
-            default: 1
+            default: 0.35
         },
         autoColor: {
             type: [Boolean, String],
