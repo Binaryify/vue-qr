@@ -1,4 +1,7 @@
 # 2.0.1
+- Update README.MD
+
+# 2.0.1
 - Fix colorLight can't set bug
 - Support background color and logo background
 
