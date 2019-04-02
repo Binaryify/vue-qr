@@ -1,3 +1,6 @@
+# 2.0.5
+- Remove babel-polyfill [#53](https://github.com/Binaryify/vue-qr/issues/53)
+
 # 2.0.4
 - Fix dotScale defalut value bug
 
