@@ -1,3 +1,6 @@
+# 2.0.7
+- Improve image load function
+
 # 2.0.6
 - Remove babel-polyfill [#53](https://github.com/Binaryify/vue-qr/issues/53)
 - add .npmignore

@@ -4,7 +4,7 @@ function imgLoaded(url) {
   }
   return new Promise(function(resolve, reject) {
     if (url.slice(0, 4) == 'data') {
-      var img = new Image()
+      let img = new Image()
       img.onload = function() {
         resolve(img)
       }
@@ -14,22 +14,15 @@ function imgLoaded(url) {
       img.src = url
       return
     }
-    var xhr = new XMLHttpRequest()
-    xhr.onload = function() {
-      var newUrl = URL.createObjectURL(this.response)
-      var img = new Image()
-      img.onload = function() {
-        resolve(img)
-        URL.revokeObjectURL(newUrl)
-      }
-      img.onerror = function() {
-        reject('Image load error')
-      }
-      img.src = newUrl
+    let img = new Image()
+    img.setAttribute("crossOrigin",'Anonymous')
+    img.onload = function() {
+      resolve(img)
     }
-    xhr.open('GET', url, true)
-    xhr.responseType = 'blob'
-    xhr.send()
+    img.onerror = function() {
+      reject('Image load error')
+    }
+    img.src = url
   })
 }
 export default imgLoaded
