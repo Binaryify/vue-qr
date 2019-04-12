@@ -1380,9 +1380,9 @@ var Drawing = (function() {
       }
 
       _oContext.restore();
-
+      _oContext.translate(margin,margin);
       var logoSize = viewportSize * logoScale;
-      var x = 0.5 * (size - logoSize);
+      var x = 0.5 * (viewportSize - logoSize);
       var y = x;
 
       _oContext.fillStyle =  _htOption.logoBackgroundColor;

@@ -1,3 +1,7 @@
+# 2.1.0
+- Fixed qr margin offset when logo is added (via:[https://github.com/SumiMakito/Awesome-qr.js/pull/38](https://github.com/SumiMakito/Awesome-qr.js/pull/38))
+
+
 # 2.0.7
 - Improve image load function
 
