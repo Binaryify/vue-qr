@@ -55,7 +55,7 @@ export default {
         },
         logoBackgroundColor:{
             type: String,
-            default: "rgba(0,0,0,0)"
+            default: "rgba(255,255,255,1)"
         },
         gifBgSrc: {
             type: String,
@@ -79,7 +79,7 @@ export default {
         },
         dotScale: {
             type: Number,
-            default: 0.35
+            default: 1
         },
         autoColor: {
             type: [Boolean, String],

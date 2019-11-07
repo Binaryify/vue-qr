@@ -19,6 +19,10 @@ Example 1|Example 2|Example 3|Example 4
 ------------ | ------------- | -------------| -------------
 <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result1.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result2.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result3.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result4.gif" width="300">
 
+### Demo
+Run `npm run dev` or `yarn dev`  
+
+运行 `npm run dev` or `yarn dev`
 
 ## Installation
 **install with NPM**
