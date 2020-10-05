@@ -1,5 +1,8 @@
+# 2.3.0 | 2020.10.05
+- Support SSR
+
 # 2.2.0
-- Fixed [#65](https://github.com/Binaryify/vue-qr/issues/65) [#68](https://github.com/Binaryify/vue-qr/issues/68) 
+- Fixed [#65](https://github.com/Binaryify/vue-qr/issues/65) [#68](https://github.com/Binaryify/vue-qr/issues/68)
 
 - Set `dotScale` default value to 1
 

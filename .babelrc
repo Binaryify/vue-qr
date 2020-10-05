@@ -1,12 +1,16 @@
 {
-  "presets": [["env", { "modules": false }], "stage-3"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
+  ],
   "plugins": [
     [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true
-      }
+      "@babel/plugin-transform-runtime",
+      {}
     ]
   ]
 }

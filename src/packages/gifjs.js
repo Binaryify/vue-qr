@@ -412,7 +412,8 @@ var GIF = (function(superClass) {
             var worker;
             _this.log("spawning worker " + i);
             const Worker=require('./gif.worker')
-            worker = new Worker();
+
+            worker = new Worker.default();
             // worker = new Worker(_this.options.workerScript);
             worker.onmessage = function(event) {
               _this.activeWorkers.splice(
