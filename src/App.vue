@@ -5,6 +5,9 @@
       colorDark="#28D905"
       colorLight="#EB0303"
       backgroundColor="#EB0303"
+      :margin="0"
+      :bindElement="true"
+      :callback="test"
     ></vue-qr>
     <vue-qr
       text="hello world"

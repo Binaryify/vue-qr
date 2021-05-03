@@ -1,118 +1,116 @@
 <template>
-  <img v-bind="{ id: uuid }" v-if="bindElement" style="display: inline-block" />
+  <img style="display: inline-block" :src="imgUrl" v-if="bindElement" />
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
 import { toBoolean } from "./util.js";
-
-import imgLoaded from "./imgLoaded";
 import readAsArrayBuffer from "./readAsArrayBuffer";
+import { AwesomeQR } from "binaryify-awesome-qr";
+// import { AwesomeQR } from "../../../Awesome-qr.js/lib/index";
 export default {
   props: {
     text: {
       type: String,
-      required: true,
+      required: true
     },
     qid: {
-      type: String,
+      type: String
     },
     correctLevel: {
       type: Number,
-      default: 1,
+      default: 1
     },
     size: {
       type: Number,
-      default: 200,
+      default: 200
     },
     margin: {
       type: Number,
-      default: 20,
+      default: 20
     },
     colorDark: {
       type: String,
-      default: "#000000",
+      default: "#000000"
     },
     colorLight: {
       type: String,
-      default: "#FFFFFF",
+      default: "#FFFFFF"
     },
     bgSrc: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     background: {
       type: String,
-      default: "rgba(0,0,0,0)",
+      default: "rgba(0,0,0,0)"
     },
     backgroundDimming: {
       type: String,
-      default: "rgba(0,0,0,0)",
+      default: "rgba(0,0,0,0)"
     },
     logoSrc: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     logoBackgroundColor: {
       type: String,
-      default: "rgba(255,255,255,1)",
+      default: "rgba(255,255,255,1)"
     },
     gifBgSrc: {
       type: String,
-      default: undefined,
+      default: undefined
     },
     logoScale: {
       type: Number,
-      default: 0.2,
+      default: 0.2
     },
     logoMargin: {
       type: Number,
-      default: 0,
+      default: 0
     },
     logoCornerRadius: {
       type: Number,
-      default: 8,
+      default: 8
     },
     whiteMargin: {
       type: [Boolean, String],
-      default: true,
+      default: true
     },
     dotScale: {
       type: Number,
-      default: 1,
+      default: 1
     },
     autoColor: {
       type: [Boolean, String],
-      default: true,
+      default: true
     },
     binarize: {
       type: [Boolean, String],
-      default: false,
+      default: false
     },
     binarizeThreshold: {
       type: Number,
-      default: 128,
+      default: 128
     },
     callback: {
       type: Function,
-      default: function () {
+      default: function() {
         return undefined;
-      },
+      }
     },
     bindElement: {
       type: Boolean,
-      default: true,
+      default: true
     },
     backgroundColor: {
       type: String,
-      default: "#FFFFFF",
-    },
+      default: "#FFFFFF"
+    }
   },
   name: "vue-qr",
   data() {
     return {
-      uuid: "",
-      AwesomeQRCode: null,
+      imgUrl: ""
     };
   },
   watch: {
@@ -120,36 +118,35 @@ export default {
       deep: true,
       handler() {
         this.main();
-      },
-    },
+      }
+    }
   },
   mounted() {
-    this.uuid = uuidv4();
     this.main();
   },
   methods: {
     async main() {
-      const that = this;
+      // const that = this;
       if (this.gifBgSrc) {
         const gifImg = await readAsArrayBuffer(this.gifBgSrc);
-        const logoImg = await imgLoaded(this.logoSrc);
+        const logoImg = this.logoSrc;
 
         this.render(undefined, logoImg, gifImg);
         return;
       }
-      const bgImg = await imgLoaded(this.bgSrc);
-      const logoImg = await imgLoaded(this.logoSrc);
+      const bgImg = this.bgSrc;
+      const logoImg = this.logoSrc;
       this.render(bgImg, logoImg);
     },
     async render(img, logoImg, gifBgSrc) {
       const that = this;
-      if (this.$isServer) {
-        return;
-      }
-      if (!this.AwesomeQRCode) {
-        this.AwesomeQRCode = require("./awesome-qr").default;
-      }
-      new this.AwesomeQRCode().create({
+      // if (this.$isServer) {
+      //   return;
+      // }
+      // if (!this.AwesomeQR) {
+      //   this.AwesomeQR = AwesomeQR;
+      // }
+      new AwesomeQR({
         gifBackground: gifBgSrc,
         text: that.text,
         size: that.size,
@@ -169,13 +166,14 @@ export default {
         dotScale: that.dotScale,
         autoColor: toBoolean(that.autoColor),
         binarize: toBoolean(that.binarize),
-        binarizeThreshold: that.binarizeThreshold,
-        callback: function (dataURI) {
-          that.callback && that.callback(dataURI, that.qid);
-        },
-        bindElement: that.bindElement ? that.uuid : undefined,
-      });
-    },
-  },
+        binarizeThreshold: that.binarizeThreshold
+      })
+        .draw()
+        .then(dataUri => {
+          this.imgUrl = dataUri;
+          that.callback && that.callback(dataUri, that.qid);
+        });
+    }
+  }
 };
 </script>

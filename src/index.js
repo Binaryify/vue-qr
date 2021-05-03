@@ -1,5 +1,4 @@
 import vueQr from './packages/index.js';
-
 const components = [
     vueQr
 ]

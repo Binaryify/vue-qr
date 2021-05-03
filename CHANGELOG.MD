@@ -1,3 +1,7 @@
+# 2.4.0 | 2021.05.03
+- Using Awesome-qr.js v2.0
+- Support Vue v3.0
+
 # 2.3.1 | 2021.05.03
 - Fixed [#86](https://github.com/Binaryify/vue-qr/issues/86)
 

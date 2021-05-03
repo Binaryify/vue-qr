@@ -20,7 +20,7 @@ Example 1|Example 2|Example 3|Example 4
 <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result1.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result2.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result3.png" width="300"> | <img src="https://raw.githubusercontent.com/Binaryify/vue-qr/master/src/assets/result4.gif" width="300">
 
 ### Demo
-Run `npm run dev` or `yarn dev`  
+Run `npm run dev` or `yarn dev`
 
 运行 `npm run dev` or `yarn dev`
 
@@ -31,8 +31,10 @@ npm install vue-qr --save
 ```
 **Import**
 ```js
+// vue2.0
 import VueQr from 'vue-qr'
-
+// vue3.0
+import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 new Vue({
     components: {VueQr}
 })
