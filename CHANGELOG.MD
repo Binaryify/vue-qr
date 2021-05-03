@@ -1,3 +1,6 @@
+# 2.3.1 | 2021.05.03
+- Fixed [#86](https://github.com/Binaryify/vue-qr/issues/86)
+
 # 2.3.0 | 2020.10.05
 - Support SSR
 

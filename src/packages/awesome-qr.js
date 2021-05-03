@@ -1204,33 +1204,66 @@ var Drawing = (function() {
     var agnPatternCenter = QRUtil.getPatternPosition(oQRCode.typeNumber);
     var xyOffset = (1 - dotScale) * 0.5;
     for (var row = 0; row < nCount; row++) {
-        for (var col = 0; col < nCount; col++) {
-            var bIsDark = oQRCode.isDark(row, col);
+      for (var col = 0; col < nCount; col++) {
+        var bIsDark = oQRCode.isDark(row, col);
 
-            // var isBlkPosCtr = ((col < 8 && (row < 8 || row >= nCount - 8)) || (col >= nCount - 8 && row < 8) || (col < nCount - 4 && col >= nCount - 4 - 5 && row < nCount - 4 && row >= nCount - 4 - 5));
-            var isBlkPosCtr = ((col < 8 && (row < 8 || row >= nCount - 8)) || (col >= nCount - 8 && row < 8));
-            var isBlkPos = ((col < 7 && (row < 7 || row >= nCount - 7)) || (col >= nCount - 7 && row < 7));
-            var bProtected = (row === 6 || col === 6 || isBlkPosCtr);
+        // var isBlkPosCtr = ((col < 8 && (row < 8 || row >= nCount - 8)) || (col >= nCount - 8 && row < 8) || (col < nCount - 4 && col >= nCount - 4 - 5 && row < nCount - 4 && row >= nCount - 4 - 5));
+        var isBlkPosCtr =
+          (col < 8 && (row < 8 || row >= nCount - 8)) ||
+          (col >= nCount - 8 && row < 8);
+        var isBlkPos =
+          (col < 7 && (row < 7 || row >= nCount - 7)) ||
+          (col >= nCount - 7 && row < 7);
+        var bProtected = row === 6 || col === 6 || isBlkPosCtr;
 
-            for (var i = 0; i < agnPatternCenter.length - 1; i++) {
-                bProtected = bProtected || (row >= agnPatternCenter[i] - 2 && row <= agnPatternCenter[i] + 2 && col >= agnPatternCenter[i] - 2 && col <= agnPatternCenter[i] + 2);
-            }
-
-            var nLeft = col * nSize + (bProtected ? 0 : (xyOffset * nSize));
-            var nTop = row * nSize + (bProtected ? 0 : (xyOffset * nSize));
-            _oContext.strokeStyle = bIsDark ? _htOption.colorDark : _htOption.colorLight;
-            _oContext.lineWidth = 0.5;
-            _oContext.fillStyle = bIsDark ? _htOption.colorDark : "rgba(255, 255, 255, 0.6)"; //_htOption.colorLight;
-            if (agnPatternCenter.length === 0) {
-                // if align pattern list is empty, then it means that we don't need to leave room for the align patterns
-                if (!bProtected)
-                    _fillRectWithMask(_oContext, nLeft, nTop, (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize, (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize, _maskCanvas, bIsDark);
-            } else {
-                var inAgnRange = ((col < nCount - 4 && col >= nCount - 4 - 5 && row < nCount - 4 && row >= nCount - 4 - 5));
-                if (!bProtected && !inAgnRange)
-                    _fillRectWithMask(_oContext, nLeft, nTop, (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize, (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize, _maskCanvas, bIsDark);
-            }
+        for (var i = 0; i < agnPatternCenter.length - 1; i++) {
+          bProtected =
+            bProtected ||
+            (row >= agnPatternCenter[i] - 2 &&
+              row <= agnPatternCenter[i] + 2 &&
+              col >= agnPatternCenter[i] - 2 &&
+              col <= agnPatternCenter[i] + 2);
         }
+
+        var nLeft = col * nSize + (bProtected ? 0 : xyOffset * nSize);
+        var nTop = row * nSize + (bProtected ? 0 : xyOffset * nSize);
+        _oContext.strokeStyle = bIsDark
+          ? _htOption.colorDark
+          : _htOption.colorLight;
+        _oContext.lineWidth = 0.5;
+        _oContext.fillStyle = bIsDark
+          ? _htOption.colorDark
+          : _htOption.colorLight || "rgba(255, 255, 255, 0.6)"; //_htOption.colorLight;
+        if (agnPatternCenter.length === 0) {
+          // if align pattern list is empty, then it means that we don't need to leave room for the align patterns
+          if (!bProtected)
+            _fillRectWithMask(
+              _oContext,
+              nLeft,
+              nTop,
+              (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize,
+              (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize,
+              _maskCanvas,
+              bIsDark
+            );
+        } else {
+          var inAgnRange =
+            col < nCount - 4 &&
+            col >= nCount - 4 - 5 &&
+            row < nCount - 4 &&
+            row >= nCount - 4 - 5;
+          if (!bProtected && !inAgnRange)
+            _fillRectWithMask(
+              _oContext,
+              nLeft,
+              nTop,
+              (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize,
+              (bProtected ? (isBlkPosCtr ? 1 : 1) : dotScale) * nSize,
+              _maskCanvas,
+              bIsDark
+            );
+        }
+      }
     }
 
     // Draw POSITION protectors
@@ -1313,7 +1346,7 @@ var Drawing = (function() {
           agnY !== 6 &&
           agnY !== edgeCenter
         ) {
-          _oContext.fillStyle =  _htOption.colorLight;
+          _oContext.fillStyle = _htOption.colorLight;
           _drawAlign(_oContext, agnX, agnY, nSize, nSize);
         } else {
           _oContext.fillStyle = _htOption.colorDark;
@@ -1346,12 +1379,12 @@ var Drawing = (function() {
       }
 
       _oContext.restore();
-      _oContext.translate(margin,margin);
+      _oContext.translate(margin, margin);
       var logoSize = viewportSize * logoScale;
       var x = 0.5 * (viewportSize - logoSize);
       var y = x;
 
-      _oContext.fillStyle =  _htOption.logoBackgroundColor;
+      _oContext.fillStyle = _htOption.logoBackgroundColor;
       _oContext.save();
       _prepareRoundedCornerClip(
         _oContext,
@@ -1669,7 +1702,7 @@ AwesomeQRCode.prototype.create = function(vOption) {
     typeNumber: 4,
     colorDark: "#000000",
     colorLight: "rgba(255, 255, 255, 0.6)",
-    logoBackgroundColor: '#ffffff',
+    logoBackgroundColor: "#ffffff",
     correctLevel: QRErrorCorrectLevel.M,
     backgroundImage: undefined,
     backgroundDimming: "rgba(0,0,0,0)",
@@ -1686,7 +1719,7 @@ AwesomeQRCode.prototype.create = function(vOption) {
     gifBackground: undefined,
     callback: undefined,
     bindElement: undefined,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff"
   };
 
   if (typeof vOption === "string") {

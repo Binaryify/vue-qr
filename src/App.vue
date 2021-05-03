@@ -1,8 +1,10 @@
 <template>
   <div>
     <vue-qr
-      text="r"
-      bgSrc="https://avatars3.githubusercontent.com/u/12221718?s=460&v=4"
+      text="test"
+      colorDark="#28D905"
+      colorLight="#EB0303"
+      backgroundColor="#EB0303"
     ></vue-qr>
     <vue-qr
       text="hello world"
@@ -114,16 +116,16 @@ export default {
       src4,
       time: 0,
       gifBgSrc1,
-      gifBgSrc2,
+      gifBgSrc2
     };
   },
   components: {
-    vueQr,
+    vueQr
   },
   methods: {
     test(url, id) {
       console.log(url, id);
-    },
-  },
+    }
+  }
 };
 </script>
