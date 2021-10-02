@@ -33,7 +33,7 @@ npm install vue-qr --save
 ```js
 // vue2.0
 import VueQr from 'vue-qr'
-// vue3.0
+// vue3.0(not support vite yet)
 import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 new Vue({
     components: {VueQr}
