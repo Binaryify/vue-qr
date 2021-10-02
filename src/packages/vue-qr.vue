@@ -6,7 +6,6 @@
 import { toBoolean } from "./util.js";
 import readAsArrayBuffer from "./readAsArrayBuffer";
 import { AwesomeQR } from "binaryify-awesome-qr";
-// import { AwesomeQR } from "../../../Awesome-qr.js/lib/index";
 export default {
   props: {
     text: {

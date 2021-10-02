@@ -78,6 +78,7 @@
       :gifBgSrc="gifBgSrc1"
       :size="300"
       :dotScale="0.4"
+       :logoSrc="src2"
     ></vue-qr>
     <vue-qr
       text="test test test test test test "
