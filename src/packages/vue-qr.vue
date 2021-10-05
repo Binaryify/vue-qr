@@ -5,7 +5,7 @@
 <script>
 import { toBoolean } from "./util.js";
 import readAsArrayBuffer from "./readAsArrayBuffer";
-import { AwesomeQR } from "binaryify-awesome-qr";
+import { AwesomeQR } from "../lib/awesome-qr";
 export default {
   props: {
     text: {

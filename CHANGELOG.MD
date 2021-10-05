@@ -1,4 +1,7 @@
 # Changelog
+## 3.1.0 | 2021.10.05
+- Support Vite [#90](https://github.com/Binaryify/vue-qr/issues/90) [#96](https://github.com/Binaryify/vue-qr/issues/96)
+
 ## 3.0.0 | 2021.10.02
 - Using Awesome-qr.js v2.0
 

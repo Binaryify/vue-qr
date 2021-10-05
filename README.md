@@ -4,7 +4,7 @@
 <a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/david/dev/binaryify/vue-qr.svg" alt="devDependencies" ></a>
 <a href="https://www.npmjs.com/package/vue-qr"><img src="https://img.shields.io/david/binaryify/vue-qr.svg" alt="devDependencies" ></a>
 
-The Vue 2.x Component for [SumiMakito's Awesome-qr.js](https://github.com/SumiMakito/Awesome-qr.js)
+The Vue Component for [SumiMakito's Awesome-qr.js](https://github.com/SumiMakito/Awesome-qr.js). Support Vue2/Vue3/Vite
 
 The only one qr code component for Vue.js you need !
 
@@ -33,7 +33,8 @@ npm install vue-qr --save
 ```js
 // vue2.0
 import VueQr from 'vue-qr'
-// vue3.0(not support vite yet)
+
+// vue3.0 (support vite)
 import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 new Vue({
     components: {VueQr}
