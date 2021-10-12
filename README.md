@@ -74,7 +74,7 @@ logoMargin | White margin that appears around the logo image. Default is 0. LOGO
 logoBackgroundColor | Logo background color, need set logo margin. Logo 背景色,需要设置 logo margin
 logoCornerRadius | Radius of the logo's corners.Default is 0 LOGO 标识及其边框的圆角半径, 默认为0
 whiteMargin | If set to true, a white border will appear around the background image. Default is true. 若设为 true, 背景图外将绘制白色边框
-dotScale | Value used to scale down the data dots' size. (0 < scale < 1.0) default 0.35 数据区域点缩小比例,默认为0.35
+dotScale | Value used to scale down the data dots' size. (0 < scale < 1.0) default 1 数据区域点缩小比例,默认为1
 autoColor | If set to true, the dominant color of backgroundImage will be used as colorDark. Default is true. 若为 true, 背景图的主要颜色将作为实点的颜色, 即 colorDark,默认 true
 binarize | If set to true, the whole image will be binarized with the given threshold, or default threshold if not specified. Default is false. 若为 true, 图像将被二值化处理, 未指定阈值则使用默认值
 binarizeThreshold | Threshold used to binarize the whole image. Default is 128. (0 < threshold < 255) 二值化处理的阈值
