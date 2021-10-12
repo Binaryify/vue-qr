@@ -64,6 +64,7 @@ size | Width as well as the height of the output QR code, includes margin. 尺�
 margin | Margin to add around the QR code, default 20px. 二维码图像的外边距, 默认 20px
 colorDark | Color of "true" blocks. Works only when both colorDark and colorLight are set. (BYTE_DTA, BYTE_POS, BYTE_AGN, BYTE_TMG) 实点的颜色
 colorLight | Color of empty space, or "false" blocks. Works only when both colorDark and colorLight are set. (BYTE_EPT) 空白区的颜色
+components | Controls the appearances of parts in the QR code. Read section [ComponentOptions](#componentoptions) to learn more. 阅读 [ComponentOptions](#componentoptions) 了解更多信息。
 bgSrc | Background url to embed in the QR code.  欲嵌入的背景图地址
 gifBgSrc | Gif background url to embed in the QR code, If gifBackground is set, backgroundImage will be ignored. This option will affects performance. 欲嵌入的背景图 gif 地址,设置后普通的背景图将失效。设置此选项会影响性能
 backgroundColor | Background color 背景色
@@ -81,6 +82,58 @@ binarizeThreshold | Threshold used to binarize the whole image. Default is 128. 
 callback | Data URI of the generated QR code will be available here. 生成的二维码 Data URI 可以在回调中取得,第一个参数为二维码 data URL, 第二个参数为 props 传过来的 qid(因为二维码生成是异步的,所以加个 id 用于排序)
 bindElement | If set to true, the generated QR will bind to a HTML element automatically. Default is TRUE. 指定是否需要自动将生成的二维码绑定到HTML上, 默认是TRUE
 
+## ComponentOptions
+
+> _ComponentOptions_ controls the appearances of parts in the QR code.
+
+```ts
+type ComponentOptions = {
+  data?: {
+    scale?: number;
+  };
+  timing?: {
+    scale?: number;
+    protectors?: boolean;
+  };
+  alignment?: {
+    scale?: number;
+    protectors?: boolean;
+  };
+  cornerAlignment?: {
+    scale?: number;
+    protectors?: boolean;
+  };
+};
+```
+
+```ts
+// default ComponentOptions
+
+{
+  data: {
+    scale: 0.4,
+  },
+  timing: {
+    scale: 0.5,
+    protectors: false,
+  },
+  alignment: {
+    scale: 0.5,
+    protectors: false,
+  },
+  cornerAlignment: {
+    scale: 1,
+    protectors: true,
+  },
+}
+```
+
+
+### protectors
+
+**Type** `boolean?`
+
+Controls whether or not to draw the translucent protectors under the specified area in the QR code.
 
 
 For more details you should definitely check out [Awesome-qr.js ](https://github.com/SumiMakito/Awesome-qr.js)

@@ -104,6 +104,25 @@ export default {
     backgroundColor: {
       type: String,
       default: "#FFFFFF"
+    },
+    components: {
+      default: {
+        data: {
+          scale: 0.4
+        },
+        timing: {
+          scale: 0.5,
+          protectors: false
+        },
+        alignment: {
+          scale: 0.5,
+          protectors: false
+        },
+        cornerAlignment: {
+          scale: 1,
+          protectors: true
+        }
+      }
     }
   },
   name: "vue-qr",
@@ -165,7 +184,8 @@ export default {
         dotScale: that.dotScale,
         autoColor: toBoolean(that.autoColor),
         binarize: toBoolean(that.binarize),
-        binarizeThreshold: that.binarizeThreshold
+        binarizeThreshold: that.binarizeThreshold,
+        components: that.components
       })
         .draw()
         .then(dataUri => {

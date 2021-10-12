@@ -1,4 +1,7 @@
 # Changelog
+## 3.2.0 | 2021.10.12
+- Add `coomponents` params [#98](https://github.com/Binaryify/vue-qr/issues/98)
+
 ## 3.1.0 | 2021.10.05
 - Support Vite [#90](https://github.com/Binaryify/vue-qr/issues/90) [#96](https://github.com/Binaryify/vue-qr/issues/96)
 
