@@ -84,7 +84,7 @@ bindElement | If set to true, the generated QR will bind to a HTML element autom
 
 ## ComponentOptions
 
-> _ComponentOptions_ controls the appearances of parts in the QR code.
+> _ComponentOptions_ controls the appearances of parts in the QR code.组件选项控制二维码中零件的外观。
 
 ```ts
 type ComponentOptions = {
@@ -128,12 +128,17 @@ type ComponentOptions = {
 }
 ```
 
+### scale 比例尺
+Type number?
+
+Scale factor for blocks in the specified area of the QR code.
+在 QR 码指定区域的块的比例。
 
 ### protectors
 
 **Type** `boolean?`
 
-Controls whether or not to draw the translucent protectors under the specified area in the QR code.
+Controls whether or not to draw the translucent protectors under the specified area in the QR code.控制是否在 QR 码的指定区域下绘制半透明保护器。
 
 
 For more details you should definitely check out [Awesome-qr.js ](https://github.com/SumiMakito/Awesome-qr.js)
