@@ -80,7 +80,7 @@ autoColor | If set to true, the dominant color of backgroundImage will be used a
 binarize | If set to true, the whole image will be binarized with the given threshold, or default threshold if not specified. Default is false. 若为 true, 图像将被二值化处理, 未指定阈值则使用默认值
 binarizeThreshold | Threshold used to binarize the whole image. Default is 128. (0 < threshold < 255) 二值化处理的阈值
 callback | Data URI of the generated QR code will be available here. 生成的二维码 Data URI 可以在回调中取得,第一个参数为二维码 data URL, 第二个参数为 props 传过来的 qid(因为二维码生成是异步的,所以加个 id 用于排序)
-bindElement | If set to true, the generated QR will bind to a HTML element automatically. Default is TRUE. 指定是否需要自动将生成的二维码绑定到HTML上, 默认是TRUE
+bindElement | If set to true, the generated QR will bind to a HTML element automatically. Default is true. 指定是否需要自动将生成的二维码绑定到HTML上, 默认是true
 
 ## ComponentOptions
 
