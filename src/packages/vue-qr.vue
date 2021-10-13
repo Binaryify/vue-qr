@@ -106,21 +106,23 @@ export default {
       default: "#FFFFFF"
     },
     components: {
-      default: {
-        data: {
-          scale: 0.4
-        },
-        timing: {
-          scale: 0.5,
-          protectors: false
-        },
-        alignment: {
-          scale: 0.5,
-          protectors: false
-        },
-        cornerAlignment: {
-          scale: 1,
-          protectors: true
+      default: function(){
+        return {
+          data: {
+            scale: 0.4
+          },
+          timing: {
+            scale: 0.5,
+            protectors: false
+          },
+          alignment: {
+            scale: 0.5,
+            protectors: false
+          },
+          cornerAlignment: {
+            scale: 1,
+            protectors: true
+          }
         }
       }
     }
