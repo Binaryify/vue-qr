@@ -1,9 +1,11 @@
 # Changelog
-## 3.2.1 | 2021.10.13
+## 3.2.2 | 2021.10.13
 - Bugfix: components default value [#100](https://github.com/Binaryify/vue-qr/pull/100)
 
+- Update `components` default value
+
 ## 3.2.0 | 2021.10.12
-- Add `coomponents` params [#98](https://github.com/Binaryify/vue-qr/issues/98)
+- Add `components` params [#98](https://github.com/Binaryify/vue-qr/issues/98)
 
 ## 3.1.0 | 2021.10.05
 - Support Vite [#90](https://github.com/Binaryify/vue-qr/issues/90) [#96](https://github.com/Binaryify/vue-qr/issues/96)

@@ -109,14 +109,14 @@ export default {
       default: function(){
         return {
           data: {
-            scale: 0.4
+            scale: 1
           },
           timing: {
-            scale: 0.5,
+            scale: 1,
             protectors: false
           },
           alignment: {
-            scale: 0.5,
+            scale: 1,
             protectors: false
           },
           cornerAlignment: {
