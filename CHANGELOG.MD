@@ -1,4 +1,7 @@
 # Changelog
+## 3.2.3 | 2022.01.18
+- Update `canvas` version
+
 ## 3.2.2 | 2021.10.13
 - Bugfix: components default value [#100](https://github.com/Binaryify/vue-qr/pull/100)
 

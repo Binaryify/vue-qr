@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host 127.0.0.1",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
@@ -46,7 +46,7 @@
     "not ie <= 8"
   ],
   "dependencies": {
-    "canvas": "^2.8.0",
+    "canvas": "2.9",
     "js-binary-schema-parser": "^2.0.2"
   }
 }
