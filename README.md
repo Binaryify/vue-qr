@@ -35,9 +35,10 @@ import VueQr from 'vue-qr'
 
 // vue3.0 (support vite)
 import vueQr from 'vue-qr/src/packages/vue-qr.vue'
-new Vue({
-    components: {VueQr}
-})
+...
+{
+  components: {VueQr}
+}
 ```
 ## Usage
 **In template**
