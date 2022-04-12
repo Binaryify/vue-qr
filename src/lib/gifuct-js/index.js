@@ -1,6 +1,6 @@
-import GIF from 'js-binary-schema-parser/lib/schemas/gif';
+import GIF from 'js-binary-schema-parser/src/schemas/gif';
 import { parse } from 'js-binary-schema-parser';
-import { buildStream } from 'js-binary-schema-parser/lib/parsers/uint8';
+import { buildStream } from 'js-binary-schema-parser/src/parsers/uint8';
 import { deinterlace } from './deinterlace';
 import { lzw } from './lzw';
 export const parseGIF = arrayBuffer => {
