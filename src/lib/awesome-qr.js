@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { createCanvas } from "canvas";
+import { Canvas } from "../../packages/skia-canvas/lib";
 import { decompressFrames, parseGIF } from "./gifuct-js/index";
 import { QRCodeModel, QRErrorCorrectLevel, QRUtil } from "./qrcode";
 import GIFEncoder from "./gif.js/GIFEncoder";
@@ -83,7 +83,7 @@ export class AwesomeQR {
             _options.components.alignment.scale = _options.dotScale;
         }
         this.options = _options;
-        this.canvas = createCanvas(options.size, options.size);
+        this.canvas = new Canvas(options.size, options.size);
         this.canvasContext = this.canvas.getContext("2d");
         this.qrCode = new QRCodeModel(-1, this.options.correctLevel);
         if (Number.isInteger(this.options.maskPattern)) {
@@ -127,7 +127,7 @@ export class AwesomeQR {
         let count = 0;
         height = image.naturalHeight || image.height;
         width = image.naturalWidth || image.width;
-        const canvas = createCanvas(width, height);
+        const canvas = new Canvas(width, height);
         const context = canvas.getContext("2d");
         if (!context) {
             return defaultRGB;
@@ -197,13 +197,13 @@ export class AwesomeQR {
             const nSize = Math.ceil(rawViewportSize / nCount);
             const viewportSize = nSize * nCount;
             const size = viewportSize + 2 * margin;
-            const mainCanvas = createCanvas(size, size);
+            const mainCanvas = new Canvas(size, size);
             const mainCanvasContext = mainCanvas.getContext("2d");
             this._clear();
             // Translate to make the top and left margins off the viewport
             mainCanvasContext.save();
             mainCanvasContext.translate(margin, margin);
-            const backgroundCanvas = createCanvas(size, size);
+            const backgroundCanvas = new Canvas(size, size);
             const backgroundCanvasContext = backgroundCanvas.getContext("2d");
             let parsedGIFBackground = null;
             let gifFrames = [];
@@ -434,31 +434,31 @@ export class AwesomeQR {
                     }
                     const { width, height } = frame.dims;
                     if (!backgroundCanvas) {
-                        backgroundCanvas = createCanvas(width, height);
+                        backgroundCanvas = new Canvas(width, height);
                         backgroundCanvasContext = backgroundCanvas.getContext("2d");
                         backgroundCanvasContext.rect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
                         backgroundCanvasContext.fillStyle = "#ffffff";
                         backgroundCanvasContext.fill();
                     }
                     if (!patchCanvas || !patchData || width !== patchCanvas.width || height !== patchCanvas.height) {
-                        patchCanvas = createCanvas(width, height);
+                        patchCanvas = new Canvas(width, height);
                         patchCanvasContext = patchCanvas.getContext("2d");
                         patchData = patchCanvasContext.createImageData(width, height);
                     }
                     patchData.data.set(frame.patch);
                     patchCanvasContext.putImageData(patchData, 0, 0);
-                    backgroundCanvasContext.drawImage(patchCanvas, frame.dims.left, frame.dims.top);
-                    const unscaledCanvas = createCanvas(size, size);
+                    backgroundCanvasContext.drawImage(patchCanvas.getContext('2d').canvas, frame.dims.left, frame.dims.top);
+                    const unscaledCanvas = new Canvas(size, size);
                     const unscaledCanvasContext = unscaledCanvas.getContext("2d");
-                    unscaledCanvasContext.drawImage(backgroundCanvas, 0, 0, size, size);
+                    unscaledCanvasContext.drawImage(backgroundCanvas.getContext('2d').canvas, 0, 0, size, size);
                     unscaledCanvasContext.rect(0, 0, size, size);
                     unscaledCanvasContext.fillStyle = backgroundDimming;
                     unscaledCanvasContext.fill();
-                    unscaledCanvasContext.drawImage(mainCanvas, 0, 0, size, size);
+                    unscaledCanvasContext.drawImage(mainCanvas.getContext('2d').canvas, 0, 0, size, size);
                     // Scale the final image
-                    const outCanvas = createCanvas(rawSize, rawSize);
+                    const outCanvas = new Canvas(rawSize, rawSize);
                     const outCanvasContext = outCanvas.getContext("2d");
-                    outCanvasContext.drawImage(unscaledCanvas, 0, 0, rawSize, rawSize);
+                    outCanvasContext.drawImage(unscaledCanvas.getContext('2d').canvas, 0, 0, rawSize, rawSize);
                     gifOutput.addFrame(outCanvasContext.getImageData(0, 0, outCanvas.width, outCanvas.height).data);
                 });
                 if (!gifOutput) {
@@ -474,17 +474,18 @@ export class AwesomeQR {
             }
             else {
                 // Swap and merge the foreground and the background
-                backgroundCanvasContext.drawImage(mainCanvas, 0, 0, size, size);
-                mainCanvasContext.drawImage(backgroundCanvas, -margin, -margin, size, size);
+                backgroundCanvasContext.drawImage(mainCanvas.getContext('2d').canvas, 0, 0, size, size);
+                mainCanvasContext.drawImage(backgroundCanvas.getContext('2d').canvas, -margin, -margin, size, size);
                 // Scale the final image
-                const outCanvas = createCanvas(rawSize, rawSize); //document.createElement("canvas");
+                const outCanvas = new Canvas(rawSize, rawSize); //document.createElement("canvas");
                 const outCanvasContext = outCanvas.getContext("2d");
-                outCanvasContext.drawImage(mainCanvas, 0, 0, rawSize, rawSize);
+                outCanvasContext.drawImage(mainCanvas.getContext('2d').canvas, 0, 0, rawSize, rawSize);
                 this.canvas = outCanvas;
+                const format = this.options.gifBackground ? "gif" : "png";
                 if (isElement(this.canvas)) {
-                    return Promise.resolve(this.canvas.toDataURL());
+                    return Promise.resolve(this.canvas.toDataURL(format));
                 }
-                return Promise.resolve(this.canvas.toBuffer());
+                return Promise.resolve(this.canvas.toBuffer(format));
             }
         });
     }

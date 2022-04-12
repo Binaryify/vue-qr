@@ -1,4 +1,7 @@
 # Changelog
+## 4.0.0 | 2022.04.12
+- Remove `canvas` dependency
+
 ## 3.2.4 | 2022.01.19
 - Update `canvas` version
 
