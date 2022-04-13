@@ -7,7 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { Canvas } from "../../packages/skia-canvas/lib";
+import canvas from "../../packages/skia-canvas-lib/lib/browser";
+const { Canvas } = canvas;
 import { decompressFrames, parseGIF } from "./gifuct-js/index";
 import { QRCodeModel, QRErrorCorrectLevel, QRUtil } from "./qrcode";
 import GIFEncoder from "./gif.js/GIFEncoder";

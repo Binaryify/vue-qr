@@ -1,8 +1,8 @@
 {
   "name": "vue-qr",
-  "version": "4.0.1",
+  "version": "4.0.5",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host 127.0.0.1",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "license": "MIT",
@@ -47,6 +47,10 @@
   ],
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "js-binary-schema-parser": "^2.0.2"
+    "glob": "^8.0.1",
+    "js-binary-schema-parser": "^2.0.2",
+    "path-browserify": "^1.0.1",
+    "simple-get": "^4.0.1",
+    "string-split-by": "^1.0.0"
   }
 }
