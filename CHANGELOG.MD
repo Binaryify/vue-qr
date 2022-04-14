@@ -1,4 +1,7 @@
 # Changelog
+## 4.0.6 | 2022.04.14
+- Fix dependency error position
+
 ## 4.0.5 | 2022.04.13
 - Remove `canvas` dependency
 
