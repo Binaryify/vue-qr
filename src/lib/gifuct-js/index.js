@@ -1,5 +1,5 @@
 import GIF from 'js-binary-schema-parser/src/schemas/gif';
-import { parse } from 'js-binary-schema-parser';
+import { parse } from 'js-binary-schema-parser/src/index';
 import { buildStream } from 'js-binary-schema-parser/src/parsers/uint8';
 import { deinterlace } from './deinterlace';
 import { lzw } from './lzw';

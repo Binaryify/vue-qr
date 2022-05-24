@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "4.0.7",
+  "version": "4.0.8",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host 0.0.0.0",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
