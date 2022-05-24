@@ -1,7 +1,7 @@
 "use strict";
 
 // const { basename, extname } = require("path");
-import { basename, extname } from "path-browserify";
+import { basename, extname } from "../../path-browser/index.js";
 //
 // Mime type <-> File extension mappings
 //

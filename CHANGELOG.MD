@@ -1,4 +1,7 @@
 # Changelog
+## 4.0.7 | 2022.05.24
+- Fix `path-browser` export error
+
 ## 4.0.6 | 2022.04.14
 - Fix dependency error position
 
