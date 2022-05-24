@@ -44,6 +44,7 @@ import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 **In template**
 
 ```html
+<vue-qr text="Hello world!"></vue-qr>
 <vue-qr :bgSrc='src' :logoSrc="src2" text="Hello world!" :size="200"></vue-qr>
 <vue-qr text="Hello world!" :callback="test" qid="testid"></vue-qr>
 ```
