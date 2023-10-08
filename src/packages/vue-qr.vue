@@ -93,7 +93,7 @@ export default {
     },
     callback: {
       type: Function,
-      default: function() {
+      default: function () {
         return undefined;
       }
     },
@@ -106,7 +106,7 @@ export default {
       default: "#FFFFFF"
     },
     components: {
-      default: function(){
+      default: function () {
         return {
           data: {
             scale: 1
@@ -123,7 +123,7 @@ export default {
             scale: 1,
             protectors: true
           }
-        }
+        };
       }
     }
   },
@@ -146,7 +146,6 @@ export default {
   },
   methods: {
     async main() {
-      // const that = this;
       if (this.gifBgSrc) {
         const gifImg = await readAsArrayBuffer(this.gifBgSrc);
         const logoImg = this.logoSrc;
@@ -159,42 +158,33 @@ export default {
       this.render(bgImg, logoImg);
     },
     async render(img, logoImg, gifBgSrc) {
-      const that = this;
-      // if (this.$isServer) {
-      //   return;
-      // }
-      // if (!this.AwesomeQR) {
-      //   this.AwesomeQR = AwesomeQR;
-      // }
-      new AwesomeQR({
+      const dataUri = await new AwesomeQR({
         gifBackground: gifBgSrc,
-        text: that.text,
-        size: that.size,
-        margin: that.margin,
-        colorDark: that.colorDark,
-        colorLight: that.colorLight,
-        backgroundColor: that.backgroundColor,
+        text: this.text,
+        size: this.size,
+        margin: this.margin,
+        colorDark: this.colorDark,
+        colorLight: this.colorLight,
+        backgroundColor: this.backgroundColor,
         backgroundImage: img,
-        backgroundDimming: that.backgroundDimming,
+        backgroundDimming: this.backgroundDimming,
         logoImage: logoImg,
-        logoScale: that.logoScale,
-        logoBackgroundColor: that.logoBackgroundColor,
-        correctLevel: that.correctLevel,
-        logoMargin: that.logoMargin,
-        logoCornerRadius: that.logoCornerRadius,
-        whiteMargin: toBoolean(that.whiteMargin),
-        dotScale: that.dotScale,
-        autoColor: toBoolean(that.autoColor),
-        binarize: toBoolean(that.binarize),
-        binarizeThreshold: that.binarizeThreshold,
-        components: that.components
-      })
-        .draw()
-        .then(dataUri => {
-          this.imgUrl = dataUri;
-          that.callback && that.callback(dataUri, that.qid);
-        });
-    }
-  }
+        logoScale: this.logoScale,
+        logoBackgroundColor: this.logoBackgroundColor,
+        correctLevel: this.correctLevel,
+        logoMargin: this.logoMargin,
+        logoCornerRadius: this.logoCornerRadius,
+        whiteMargin: toBoolean(this.whiteMargin),
+        dotScale: this.dotScale,
+        autoColor: toBoolean(this.autoColor),
+        binarize: toBoolean(this.binarize),
+        binarizeThreshold: this.binarizeThreshold,
+        components: this.components,
+      }).draw();
+
+      this.imgUrl = dataUri;
+      that.callback && that.callback(dataUri, that.qid);
+    },
+  },
 };
 </script>
