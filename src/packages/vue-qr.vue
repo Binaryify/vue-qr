@@ -183,7 +183,7 @@ export default {
       }).draw();
 
       this.imgUrl = dataUri;
-      that.callback && that.callback(dataUri, that.qid);
+      this.callback && this.callback(dataUri, this.qid);
     },
   },
 };
