@@ -1,4 +1,16 @@
 # Changelog
+
+## 5.0.0 | 2026.02.04
+
+### Breaking Changes
+- Vue 3 only. For Vue 2, use v4.x (`npm install vue-qr@4`)
+- `callback` prop replaced with `@generated` event
+
+### Changes
+- Migrated build tool from Webpack to Vite
+- Refactored component to Vue 3 Composition API (`<script setup>`)
+- Updated dependencies
+
 ## 4.0.9 | 2022.05.24
 - Fix `path-browserify` export error
 

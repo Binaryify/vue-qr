@@ -1,18 +1,8 @@
-import vueQr from './packages/index.js';
-const components = [
-    vueQr
-]
+import VueQr from './packages/index.js'
 
-const install = function(Vue, opts = {}) {
-  components.map(component => {
-    Vue.component(component.name, component);
-  })
+export function install(app) {
+  app.component('VueQr', VueQr)
 }
 
-/* 支持使用标签的方式引入 */
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-}
-
-export default vueQr
-
+export { VueQr }
+export default VueQr

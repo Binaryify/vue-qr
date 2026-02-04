@@ -1,9 +1,11 @@
 {
   "name": "vue-qr",
-  "version": "4.0.9",
+  "version": "5.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --host 0.0.0.0",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "license": "MIT",
   "author": "Binaryify",
@@ -12,44 +14,32 @@
     "type": "git",
     "url": "https://github.com/Binaryify/vue-qr.git"
   },
-  "main": "dist/vue-qr.js",
-  "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-stage-0": "^7.8.3",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-lodash": "^3.3.4",
-    "cross-env": "^7.0.2",
-    "css-loader": "^4.3.0",
-    "file-loader": "^6.1.0",
-    "uuid": "^8.3.1",
-    "vue": "^2.6.12",
-    "vue-loader": "^15.9.3",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+  "main": "./dist/vue-qr.umd.cjs",
+  "module": "./dist/vue-qr.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-qr.js",
+      "require": "./dist/vue-qr.umd.cjs"
+    }
   },
-  "description": "The Vue 2.x component of Awesome-qr.js",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "description": "The Vue 3.x component for generating QR codes with awesome styles",
   "keywords": [
     "vue-qr",
     "vue qr",
     "vue qrcode",
     "qr",
-    "vue"
-  ],
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "dependencies": {
-    "glob": "^8.0.1",
-    "js-binary-schema-parser": "^2.0.2",
-    "simple-get": "^4.0.1",
-    "string-split-by": "^1.0.0"
-  }
+    "vue",
+    "vue3"
+  ]
 }
