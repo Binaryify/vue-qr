@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,14 +16,17 @@
   },
   "main": "./dist/vue-qr.umd.cjs",
   "module": "./dist/vue-qr.js",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./dist/vue-qr.js",
       "require": "./dist/vue-qr.umd.cjs"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",

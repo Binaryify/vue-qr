@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.2 | 2026.02.17
+
+### Features
+- Add TypeScript declarations for `vue-qr` props and `generated` event
+- Export package-level types via `types` and `exports.types`
+
 ## 5.0.1 | 2026.02.17
 
 ### Fixes
