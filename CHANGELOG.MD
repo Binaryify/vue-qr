@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.1 | 2026.02.17
+
+### Fixes
+- Add missing `js-binary-schema-parser` in `devDependencies` to fix build failures in clean environments
+
 ## 5.0.0 | 2026.02.04
 
 ### Breaking Changes

@@ -1,6 +1,6 @@
 {
   "name": "vue-qr",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -27,6 +27,7 @@
   ],
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
+    "js-binary-schema-parser": "^2.0.3",
     "vite": "^5.0.0",
     "vue": "^3.4.0"
   },
