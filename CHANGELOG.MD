@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.0.3 | 2026.02.17
+
+### Fixes
+- Add `prepublishOnly` script to always run `build` before `npm publish`
+
 ## 5.0.2 | 2026.02.17
 
 ### Features
